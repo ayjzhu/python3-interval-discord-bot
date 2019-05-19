@@ -35,9 +35,9 @@ TOKEN = "YOUR_SUPER_SECRET_BOT_TOKEN_GOES_HERE"
 INTERVAL = 60
 
 # channel to send the message to
-# the message is sent to a channel specified with an ID below
+# the message is sent to a channel specified with an ID below as an int
 # right click on the Discord channel and click 'copy id' to get one
-CHANNEL = 'YOUR_DISCORD_CHANNEL_ID_GOES_HERE'
+CHANNEL = YOUR_DISCORD_CHANNEL_ID_GOES_HERE
 
 # message to be sent
 # custom message to be sent to specified channel
@@ -57,12 +57,11 @@ This is your _plain text_ for example.
 client = discord.Client()
 async def send_interval_message():
     await client.wait_until_ready()
-    channel = CHANNEL
+    channel = client.get_channel(CHANNEL)
     interval = INTERVAL
     message = MESSAGE
-    channel = discord.Object(id=channel)
-    while not client.is_closed:
-        await client.send_message(channel, message)
+    while not client.is_closed():
+        await channel.send(message)
         await asyncio.sleep(interval)
 
 
