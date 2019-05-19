@@ -69,7 +69,7 @@ async def send_interval_message():
 # print list of servers where this bot is active to console
 async def list_servers():
     await client.wait_until_ready()
-    while not client.is_closed:
+    while not client.is_closed():
         # you can customize the output message(s) below
         print("--- INTERVAL BOT ONLINE ---")
         for server in client.servers:
