@@ -71,7 +71,7 @@ async def list_servers():
     while not client.is_closed():
         # you can customize the output message(s) below
         print("--- INTERVAL BOT ONLINE ---")
-        for server in client.servers:
+        for server in client.guilds:
             # you can customize the output message(s) below
             print('Active servers: ' + str(server.name))
         await asyncio.sleep(600)
